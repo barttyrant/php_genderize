@@ -3,10 +3,10 @@
 namespace Genderize\Exception;
 
 /**
- * Description of ClassNotFoundException
+ * Description of NullResponseException
  *
  * @author barttyrant
  */
-class ClassNotFoundException extends Exception {
+class NullResponseException extends Exception {
     //put your code here
 }

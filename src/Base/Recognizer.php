@@ -25,8 +25,29 @@ class Recognizer {
     /**
      * @TODO implement this shit
      */
-    public function recognize() {
-        die($this->_build_url());
+    public function recognize($as_object = true) {
+
+        $url = $this->_build_url();
+        $response = json_decode(file_get_contents($url) . '...', true);
+
+        if (is_null($response)) {
+            throw new \Genderize\Exception\NullResponseException('Empty response received for ' . $url);
+        }
+
+        if ($as_object) {
+            $nameObj = new Name();
+
+            foreach (['name', 'gender', 'probability', 'count', 'country_id'] as $field) {
+                if (!empty($response[$field])) {
+                    $method_name = 'set_' . $field;
+                    $nameObj->{$method_name}($response[$field]);
+                }
+            }
+
+            return $nameObj;
+        } else {
+            return !empty($response['gender']) ? $response['gender'] : null;
+        }
     }
 
     /**
