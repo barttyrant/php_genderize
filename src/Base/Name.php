@@ -9,21 +9,38 @@ namespace Genderize\Base;
  */
 class Name {
 
-    protected $_name = null;
-    protected $_count = 0;
-    protected $_gender = null;
-    protected $_probability = 0.00;
+    protected $_name;
+    protected $_count;
+    protected $_gender;
+    protected $_probability;
 
     public function __construct($name = null) {
-        $this->set_name($name);
+        $this->_set_defaults(['name' => $name]);
+    }
+
+    protected function _set_defaults($params = []) {
+
+        $defaults = [
+            'name' => null,
+            'count' => 0,
+            'gender' => null,
+            'probability' => 0.00
+        ];
+
+        $params = array_merge($defaults, $params);
+
+        foreach ($params as $k => $v) {
+            $_k = '_' . $k;
+            $this->$_k = $v;
+        }
     }
 
     public function is_male() {
-
+        return $this->_gender == 'male';
     }
 
     public function is_female() {
-
+        return $this->_gender == 'female';
     }
 
     public function recognize($country_id = null) {
@@ -32,8 +49,7 @@ class Name {
     }
 
     public function clear() {
-        $this->_name = null;
-        $this->_probability = 0.00;
+        $this->_set_defaults();
     }
 
     // <editor-fold desc="Setters and getters">
