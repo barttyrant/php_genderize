@@ -1,5 +1,7 @@
 <?php
 
+namespace Genderize\Resource;
+
 /**
  * Countries
  *
