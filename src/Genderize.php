@@ -23,7 +23,6 @@ class Genderize {
      * @return boolean success
      */
     public function autoload($className) {
-
         $className = (string) $className;
 
         if (strpos($className, 'Genderize\\') === false) {
@@ -32,8 +31,9 @@ class Genderize {
 
         $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
         $className = str_replace('Genderize/', '', $className);
+        $classFileName = $className . '.php';
 
-        $classFileName = ($this->_base_dir) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . "$className.php";
+        $classFileName = ($this->_base_dir) . DIRECTORY_SEPARATOR . "$className.php";
 
         if (is_file($classFileName)) {
             require_once($classFileName);
@@ -44,3 +44,7 @@ class Genderize {
     }
 
 }
+
+$recognizer = new Genderize();
+
+

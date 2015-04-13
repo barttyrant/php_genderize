@@ -1,6 +1,6 @@
 <?php
 
-namespace Genderize;
+namespace Genderize\Base;
 
 /**
  * Description of Recognizer
@@ -9,12 +9,14 @@ namespace Genderize;
  */
 class Recognizer {
 
+    const BASE = 'https://api.genderize.io/';
+
     protected $_name = null;
     protected $_country_id = null;
     protected $_supported_countries = null;
     protected $_supported_languages = null;
 
-    public function __construct($name, $country_id, $language_id) {
+    public function __construct($name = null, $country_id = null, $language_id = null) {
         $this->set_name($name)
                 ->set_country_id($country_id)
                 ->set_language_id($language_id);
@@ -24,14 +26,23 @@ class Recognizer {
      * @TODO implement this shit
      */
     public function recognize() {
-        
+        die($this->_build_url());
     }
 
     /**
      * @TODO implement this shit
      */
-    protected function _build_url($name, $country_id, $language) {
+    protected function _build_url() {
 
+        $params = array_filter([
+            'name' => $this->_name,
+            'country_id' => $this->_country_id,
+            'language_id' => $this->_language_id,
+                ], function($v) {
+            return strlen(trim($v)) > 0;
+        });
+
+        return self::BASE . '?' . http_build_query($params);
     }
 
     /**

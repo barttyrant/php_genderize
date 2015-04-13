@@ -1,5 +1,7 @@
 <?php
 
+namespace Genderize\Base;
+
 /**
  * Description of Name
  *
