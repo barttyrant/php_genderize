@@ -31,7 +31,7 @@ class Recognizer {
     public function recognize($return_as_object = true) {
 
         $url = $this->_build_url();
-        $response = json_decode(file_get_contents($url) . '...', true);
+        $response = json_decode(file_get_contents($url), true);
 
         if (is_null($response)) {
             throw new \Genderize\Exception\NullResponseException('Empty response received for ' . $url);

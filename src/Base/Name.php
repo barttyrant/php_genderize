@@ -28,7 +28,8 @@ class Name {
             'name' => null,
             'count' => 0,
             'gender' => null,
-            'probability' => 0.00
+            'probability' => 0.00,
+
         ];
 
         $params = array_merge($defaults, $params);
@@ -61,7 +62,7 @@ class Name {
      * @return Name
      */
     public function recognize($country_id = null) {
-        $Recognizer = new \Genderize\Recognizer($country_id);
+        $Recognizer = new Recognizer($country_id);
         $Recognizer->recognize($country_id);
         return $this;
     }
