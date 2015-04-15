@@ -3,10 +3,10 @@
 namespace Genderize\Exception;
 
 /**
- * Description of ClassNotFoundException
+ * Exception class for handling class that cannot be loaded
  *
- * @author barttyrant
+ * @author barttyrant <bartlomiej@tyranowski.pl>
  */
-class ClassNotFoundException extends Exception {
+class ClassNotFoundException extends \Exception {
     //put your code here
 }

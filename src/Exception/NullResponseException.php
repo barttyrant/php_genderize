@@ -3,10 +3,10 @@
 namespace Genderize\Exception;
 
 /**
- * Description of NullResponseException
+ * Exception class for handling empty (null) response from Genderize.io API
  *
- * @author barttyrant
+ * @author barttyrant <bartlomiej@tyranowski.pl>
  */
-class NullResponseException extends Exception {
+class NullResponseException extends \Exception {
     //put your code here
 }

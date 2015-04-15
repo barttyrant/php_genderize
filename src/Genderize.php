@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Genderize.io handler for PHP
  *

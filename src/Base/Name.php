@@ -5,7 +5,7 @@ namespace Genderize\Base;
 /**
  * Description of Name
  *
- * @author barttyrant
+ * @author barttyrant <bartlomiej@tyranowski.pl>
  */
 class Name {
 
@@ -18,6 +18,10 @@ class Name {
         $this->_set_defaults(['name' => $name]);
     }
 
+    /**
+     * sets default values for all object variables
+     * @param type $params
+     */
     protected function _set_defaults($params = []) {
 
         $defaults = [
@@ -35,20 +39,37 @@ class Name {
         }
     }
 
+    /**
+     * checks whether current name is recognized as a male one.
+     * @return boolean
+     */
     public function is_male() {
         return $this->_gender == 'male';
     }
 
+    /**
+     * checks whether current name is recognized as a female one.
+     * @return boolean
+     */
     public function is_female() {
         return $this->_gender == 'female';
     }
 
+    /**
+     * Triggers regognize request based on current params
+     * @param string $country_id | optional
+     * @return Name
+     */
     public function recognize($country_id = null) {
         $Recognizer = new \Genderize\Recognizer($country_id);
-        return $Recognizer->recognize($country_id);
+        $Recognizer->recognize($country_id);
+        return $this;
     }
 
-    public function clear() {
+    /**
+     * resets all object values
+     */
+    public function reset() {
         $this->_set_defaults();
     }
 
