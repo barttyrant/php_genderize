@@ -34,8 +34,7 @@ class Genderize {
         }
 
         $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-        $className = str_replace('Genderize/', '', $className);
-        $classFileName = $className . '.php';
+        $className = str_replace('Genderize' . DIRECTORY_SEPARATOR, '', $className);
 
         $classFileName = ($this->_base_dir) . DIRECTORY_SEPARATOR . "$className.php";
 
