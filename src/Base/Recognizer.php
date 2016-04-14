@@ -59,9 +59,9 @@ class Recognizer {
                 //DEPRECATED: if a single name was passed in, not as part of an array, return a single Name object
                 $nameObj = new Name();
                 foreach (['name', 'gender', 'probability', 'count', 'country_id'] as $field) {
-                    if (!empty($nameresponse[$field])) {
+                    if (!empty($response[$field])) {
                         $method_name = 'set_' . $field;
-                        $nameObj->{$method_name}($nameresponse[$field]);
+                        $nameObj->{$method_name}($response[$field]);
                     }
                 }
 
