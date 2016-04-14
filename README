@@ -4,9 +4,10 @@ PHP5 lib for handling genderize.io gender recognition
 Basicaly, it's for guessing the gender by a given first name and using [genderize.io](http://genderize.io).
 
 Author: Bart Tyrant bartlomiej@tyranowski.pl
+Contributors: Luke Shaheen @tlshaheen http://github.com/tlshaheen
 License: The MIT License http://www.opensource.org/licenses/mit-license.php
 
-Usage:
+==Usage:==
 
 The simplest case:
 
@@ -25,6 +26,34 @@ Genderize\Base\Name Object
     [_count:protected] => 4284
     [_gender:protected] => male
     [_probability:protected] => 1.00
+)
+
+You can pass multiple names - at time of writing, genderizer.io accepts up to 10 at once
+
+```php
+$recognizer = new \Genderize\Base\Recognizer(array('Peter', 'John'));
+
+$namesinfo = $recognizer->recognize();
+print_r($namesinfo);
+```
+
+will give:
+
+
+array([0] => Genderize\Base\Name Object
+            (
+                [_name:protected] => Peter
+                [_count:protected] => 4284
+                [_gender:protected] => male
+                [_probability:protected] => 1.00
+            ),
+        [1] => Genderize\Base\Name Object
+            (
+                [_name:protected] => Peter
+                [_count:protected] => 4284
+                [_gender:protected] => male
+                [_probability:protected] => 1.00
+            )
 )
 
 
@@ -60,3 +89,5 @@ Genderize\Base\Name Object
     [_probability:protected] => 1.00
     [_country_id] => PL
 )
+
+Have an API key from http://store.genderizer.io? Use `$Recognizer->set_api_key($api_key)` to pass it with the request.
