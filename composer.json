@@ -1,4 +1,7 @@
 {
+    "name": "barttyrant/php_genderize",
+    "description": "Genderize.io handler for PHP",
     "require": {
+        "php": ">=5.3.0"
     }
 }
