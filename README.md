@@ -90,4 +90,4 @@ Genderize\Base\Name Object
     [_country_id] => PL
 )
 
-Have an API key from http://store.genderizer.io? Use `$Recognizer->set_api_key($api_key)` to pass it with the request.
+Have an API key from http://store.genderize.io? Use `$Recognizer->set_api_key($api_key)` to pass it with the request.
