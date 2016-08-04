@@ -1,6 +1,6 @@
 <?php
 
-namespace Genderize\Base;
+namespace PicodiLab\Genderize\Base;
 
 /**
  * Main recognizer class for handling gender recognize process

@@ -1,5 +1,7 @@
 <?php
 
+namespace PicodiLab\Genderize;
+
 /**
  * Genderize.io handler for PHP
  *

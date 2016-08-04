@@ -1,6 +1,6 @@
 <?php
 
-namespace Genderize\Base;
+namespace PicodiLab\Genderize\Base;
 
 /**
  * Description of Name

@@ -1,6 +1,6 @@
 <?php
 
-namespace Genderize\Exception;
+namespace PicodiLab\Genderize\Exception;
 
 /**
  * Exception class for handling invalid (not officialy supported) country filter

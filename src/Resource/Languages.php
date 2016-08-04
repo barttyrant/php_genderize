@@ -1,6 +1,6 @@
 <?php
 
-namespace Genderize\Resource;
+namespace PicodiLab\Genderize\Resource;
 
 /**
  * Set of languages taken from http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
