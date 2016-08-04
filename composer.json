@@ -1,7 +1,28 @@
 {
-    "name": "barttyrant/php_genderize",
+//    "name": "barttyrant/php_genderize",
+    "name": "picodi-lab/genderizator",
     "description": "Genderize.io handler for PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bartek Tyranowski",
+            "email": "bartek.tyranowski@picodi.com"
+        },
+        {
+            "name": "Luke Shaheen",
+        },
+        {
+            "name": "Filip Pokoj",
+            "email": "filip.pokoj@picodi.com"
+        },
+    ],
     "require": {
         "php": ">=5.3.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "PicodiLab\\Genderize\\": "src/"
+        }
     }
 }
