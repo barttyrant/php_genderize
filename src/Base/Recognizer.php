@@ -27,15 +27,15 @@ class Recognizer {
     /**
      * Recognizes the gender based on object params
      * @param boolean $return_as_object
-     * @return \Genderize\Base\Name
-     * @throws \Genderize\Exception\NullResponseException
+     * @return \PicodiLab\Genderize\Base\Name
+     * @throws \PicodiLab\Genderize\Exception\NullResponseException
      */
     public function recognize($return_as_object = true) {
 
         $url = $this->_build_url();
         $response = json_decode(file_get_contents($url), true);
         if (is_null($response)) {
-            throw new \Genderize\Exception\NullResponseException('Empty response received for ' . $url);
+            throw new \PicodiLab\Genderize\Exception\NullResponseException('Empty response received for ' . $url);
         }
 
         if ($return_as_object) {
@@ -122,7 +122,7 @@ class Recognizer {
      */
     protected function is_country_supported($country_id) {
         if (is_null($this->_supported_countries)) {
-            $Countries = new \Genderize\Resource\Countries();
+            $Countries = new \PicodiLab\Genderize\Resource\Countries();
             $this->_supported_countries = $Countries->get();
         }
 
@@ -137,7 +137,7 @@ class Recognizer {
      */
     protected function is_language_supported($language_id) {
         if (is_null($this->_supported_languages)) {
-            $Languages = new \Genderize\Resource\Languages();
+            $Languages = new \PicodiLab\Genderize\Resource\Languages();
             $this->_supported_languages = $Languages->get();
         }
         return in_array($language_id, $this->_supported_languages);
@@ -149,7 +149,7 @@ class Recognizer {
         $country_id = strtoupper(trim($country_id));
         if ($check_if_valid) {
             if (!empty($country_id) && !$this->is_country_supported($country_id)) {
-                throw new \Genderize\Exception\CountryNotSupportedException('Country ' . $country_id . ' is not supported');
+                throw new \PicodiLab\Genderize\Exception\CountryNotSupportedException('Country ' . $country_id . ' is not supported');
             }
         }
         $this->_country_id = $country_id;
@@ -164,7 +164,7 @@ class Recognizer {
         $language_id = strtolower(trim($language_id));
         if ($check_if_valid) {
             if (!empty($language_id) && !$this->is_language_supported($language_id)) {
-                throw new \Genderize\Exception\CountryNotSupportedException('Language ' . $language_id . ' is not supported');
+                throw new \PicodiLab\Genderize\Exception\CountryNotSupportedException('Language ' . $language_id . ' is not supported');
             }
         }
         $this->_language_id = $language_id;
