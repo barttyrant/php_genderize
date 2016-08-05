@@ -10,10 +10,6 @@
         {
             "name":   "Luke Shaheen",
             "email":  "tshaheen07@hotmail.com"
-        },
-        {
-            "name":   "Filip Pokoj",
-            "email":  "filip.pokoj@picodi.com"
         }
     ],
     "require": {
