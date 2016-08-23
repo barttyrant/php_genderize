@@ -2,6 +2,13 @@
 
 namespace Genderize\Base;
 
+use Genderize\Exception\NullResponseException;
+use Genderize\Exception\CountryNotSupportedException;
+use Genderize\Resource\Countries;
+use Genderize\Resource\Languages;
+
+
+
 /**
  * Main recognizer class for handling gender recognize process
  *
@@ -35,7 +42,7 @@ class Recognizer {
         $url = $this->_build_url();
         $response = json_decode(file_get_contents($url), true);
         if (is_null($response)) {
-            throw new \Genderize\Exception\NullResponseException('Empty response received for ' . $url);
+            throw new NullResponseException('Empty response received for ' . $url);
         }
 
         if ($return_as_object) {
@@ -99,7 +106,7 @@ class Recognizer {
             'name' => $this->_names,
             'country_id' => $this->_country_id,
             'language_id' => $this->_language_id,
-                ], function($v) {
+        ], function($v) {
             if (!is_array($v)) {
                 return strlen(trim($v)) > 0;
             } else {
@@ -122,7 +129,7 @@ class Recognizer {
      */
     protected function is_country_supported($country_id) {
         if (is_null($this->_supported_countries)) {
-            $Countries = new \Genderize\Resource\Countries();
+            $Countries = new Countries();
             $this->_supported_countries = $Countries->get();
         }
 
@@ -137,7 +144,7 @@ class Recognizer {
      */
     protected function is_language_supported($language_id) {
         if (is_null($this->_supported_languages)) {
-            $Languages = new \Genderize\Resource\Languages();
+            $Languages = new Languages();
             $this->_supported_languages = $Languages->get();
         }
         return in_array($language_id, $this->_supported_languages);
@@ -149,7 +156,7 @@ class Recognizer {
         $country_id = strtoupper(trim($country_id));
         if ($check_if_valid) {
             if (!empty($country_id) && !$this->is_country_supported($country_id)) {
-                throw new \Genderize\Exception\CountryNotSupportedException('Country ' . $country_id . ' is not supported');
+                throw new CountryNotSupportedException('Country ' . $country_id . ' is not supported');
             }
         }
         $this->_country_id = $country_id;
@@ -164,7 +171,7 @@ class Recognizer {
         $language_id = strtolower(trim($language_id));
         if ($check_if_valid) {
             if (!empty($language_id) && !$this->is_language_supported($language_id)) {
-                throw new \Genderize\Exception\CountryNotSupportedException('Language ' . $language_id . ' is not supported');
+                throw new CountryNotSupportedException('Language ' . $language_id . ' is not supported');
             }
         }
         $this->_language_id = $language_id;

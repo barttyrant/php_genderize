@@ -1,7 +1,6 @@
 <?php
 
 namespace Genderize\Resource;
-
 /**
  * Set of countries taken from http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
  * as Genderize.io uses this standard

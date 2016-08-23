@@ -3,5 +3,17 @@
     "description": "Genderize.io handler for PHP",
     "require": {
         "php": ">=5.3.0"
+    },
+    "authors": [
+        {
+            "name": "Bartek Tyranowski",
+            "email": "bartek.tyranowski@picodi.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Genderize\\": "src/"
+        }
     }
 }
