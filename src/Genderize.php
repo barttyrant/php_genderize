@@ -22,11 +22,11 @@ class Genderize {
 
     public function __construct() {
         $this->_base_dir = dirname(__FILE__);
-        spl_autoload_register(array($this, 'autoload'));
+//        spl_autoload_register(array($this, 'autoload'));
     }
 
     public function __destruct() {
-        spl_autoload_unregister(array($this, 'autoload'));
+//        spl_autoload_unregister(array($this, 'autoload'));
     }
 
     /**
