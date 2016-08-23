@@ -28,7 +28,31 @@ class Genderize {
     public function __destruct() {
         spl_autoload_unregister(array($this, 'autoload'));
     }
-    
+
+    /**
+     * @param string $className
+     * @return boolean success
+     */
+//    public function autoload($className) {
+//        $className = (string) $className;
+//
+//        if (strpos($className, 'Genderize\\') === false) {
+//            return false;
+//        }
+//
+//        $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
+//        $className = str_replace('Genderize' . DIRECTORY_SEPARATOR, '', $className);
+//
+//        $classFileName = ($this->_base_dir) . DIRECTORY_SEPARATOR . "$className.php";
+//
+//        if (is_file($classFileName)) {
+//            require_once($classFileName);
+//            return true;
+//        }
+//
+//        throw new ClassNotFoundException($className . ' not found in Genderize namespace');
+//    }
+
 }
 
 $recognizer = new Genderize();
