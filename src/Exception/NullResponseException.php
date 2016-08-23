@@ -1,6 +1,6 @@
 <?php
 
-namespace PicodiLab\Genderize\Exception;
+namespace Genderize\Exception;
 
 /**
  * Exception class for handling empty (null) response from Genderize.io API

@@ -1,11 +1,13 @@
 <?php
 
-namespace PicodiLab\Genderize\Base;
+namespace Genderize\Base;
 
-use PicodiLab\Genderize\Exception\NullResponseException;
-use PicodiLab\Genderize\Exception\CountryNotSupportedException;
-use PicodiLab\Genderize\Resource\Countries;
-use PicodiLab\Genderize\Resource\Languages;
+use Genderize\Exception\NullResponseException;
+use Genderize\Exception\CountryNotSupportedException;
+use Genderize\Resource\Countries;
+use Genderize\Resource\Languages;
+
+
 
 /**
  * Main recognizer class for handling gender recognize process
@@ -22,9 +24,7 @@ class Recognizer {
     protected $_supported_countries = null;
     protected $_supported_languages = null;
 
-
-    public function __construct($names = null, $country_id = null, $language_id = null, $api_key = null)
-    {
+    public function __construct($names = null, $country_id = null, $language_id = null, $api_key = null) {
         $this->set_names($names)
             ->set_country_id($country_id)
             ->set_language_id($language_id)
@@ -34,8 +34,8 @@ class Recognizer {
     /**
      * Recognizes the gender based on object params
      * @param boolean $return_as_object
-     * @return Name
-     * @throws NullResponseException
+     * @return \Genderize\Base\Name
+     * @throws \Genderize\Exception\NullResponseException
      */
     public function recognize($return_as_object = true) {
 
@@ -106,7 +106,7 @@ class Recognizer {
             'name' => $this->_names,
             'country_id' => $this->_country_id,
             'language_id' => $this->_language_id,
-                ], function($v) {
+        ], function($v) {
             if (!is_array($v)) {
                 return strlen(trim($v)) > 0;
             } else {

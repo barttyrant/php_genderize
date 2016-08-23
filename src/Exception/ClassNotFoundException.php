@@ -1,6 +1,6 @@
 <?php
 
-namespace PicodiLab\Genderize\Exception;
+namespace Genderize\Exception;
 
 /**
  * Exception class for handling class that cannot be loaded
