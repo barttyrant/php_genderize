@@ -1,26 +1,19 @@
 {
-    "name": "fpokoj/php_genderize",
+    "name": "barttyrant/php_genderize",
     "description": "Genderize.io handler for PHP",
-    "repositories": [
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "authors": [
         {
-            "type": "package",
-            "package": {
-                "version": "dev-master",
-                "name": "barttyrant/php_genderize",
-                "source": {
-                    "url": "https://github.com/barttyrant/php_genderize.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-4": {
-                        "Genderize\\": "src/"
-                    }
-                }
-            }
+            "name": "Bartek Tyranowski",
+            "email": "bartek.tyranowski@picodi.com"
         }
     ],
-    "require": {
-        "barttyrant/php_genderize": "*"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Genderize\\": "src/"
+        }
     }
 }
